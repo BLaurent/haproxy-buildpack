@@ -1,8 +1,5 @@
-#!/bin/sh
+#! /bin/sh
 
-set -e            # fail fast
-set -o pipefail   # do not ignore exit codes when piping output
-set -x          # enable debugging
 
 echo "-----> Done."
 
