@@ -1,10 +1,8 @@
 #!/bin/sh
 
-#set -e            # fail fast
-#set -o pipefail   # do not ignore exit codes when piping output
-#set -x          # enable debugging
-
-env
+set -e            # fail fast
+set -o pipefail   # do not ignore exit codes when piping output
+set -x          # enable debugging
 
 BUILD_DIR=$1
 CACHE_DIR=$2
@@ -18,7 +16,6 @@ get_source() {
     echo "Creating $CACHE_DIR"
     mkdir $CACHE_DIR
   fi
-
 
   if [ -e $CACHE_DIR/$ARCHIVE ]; then
     echo "Don't need to download, already exists"
@@ -40,7 +37,7 @@ compile_source() {
   if [ ! -f $CACHE_DIR/$ARCHIVE_DIR/haproxy ]; then
     echo "Compiling $ARCHIVE_DIR..."
     cd $CACHE_DIR/$ARCHIVE_DIR
-    make TARGET=linux2628
+    make -j4 TARGET=linux2628
   fi
 }
 
