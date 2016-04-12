@@ -4,14 +4,14 @@
 #set -o pipefail   # do not ignore exit codes when piping output
 #set -x          # enable debugging
 
+env
+
 BUILD_DIR=$1
 CACHE_DIR=$2
 VERSION_DIR=`cd $(dirname $0); cd ..; pwd`
 VERSION=`cat $VERSION_DIR/VERSION | sed 's/[\r\n]*$//'`
 ARCHIVE=`basename $VERSION`
 ARCHIVE_DIR=`echo $ARCHIVE | sed 's/\.tar\.gz$//'`
-
-env
 
 get_source() {
   if [ ! -d $CACHE_DIR ]; then
