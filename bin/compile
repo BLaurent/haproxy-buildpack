@@ -4,6 +4,10 @@ set -e            # fail fast
 set -o pipefail   # do not ignore exit codes when piping output
 set -x          # enable debugging
 
+echo "-----> Done."
+
+exit 0
+
 BUILD_DIR=$1
 CACHE_DIR=$2
 VERSION_DIR=`cd $(dirname $0); cd ..; pwd`
