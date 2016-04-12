@@ -39,9 +39,11 @@ compile_source() {
 
 vendor_bin() {
   cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy
-  cp $VERSION_DIR/conf/haproxy.cfg /etc/haproxy/haproxy.cfg
-  cp $VERSION_DIR/boot.sh .
+  mkdir -p /etc/haproxy/
+  cp $BUILD_DIR/conf/haproxy.cfg /etc/haproxy/haproxy.cfg
+  cp $BUILD_DIR/boot.sh .
   echo $VERSION_DIR
+  echo $BUILD_DIR
   ls $VERSION_DIR/
 }
 
