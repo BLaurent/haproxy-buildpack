@@ -1,4 +1,4 @@
 #!/bin/sh
 # bin/detect <build-dir>
 
-exit 1
+exit 0
