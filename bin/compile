@@ -41,6 +41,8 @@ vendor_bin() {
   cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy
   cp $VERSION_DIR/conf/haproxy.cfg /etc/haproxy/haproxy.cfg
   cp $VERSION_DIR/boot.sh .
+  echo $VERSION_DIR
+  ls $VERSION_DIR/
 }
 
 get_source
