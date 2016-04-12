@@ -1,6 +1,5 @@
 # haproxy-buildpack
-
-This is a Heroku buildpack for haproxy.
+Cloud Foundry buildpack for haproxy.
 
 You can specify the haproxy version by putting the full link in the VERSION file.
 
@@ -8,7 +7,7 @@ You must have a haproxy.cfg file in your app's root.
 
 ## Why?
 
-Why would anyone want haproxy on Heroku when it has a perfectly good load balancer and its own routing mesh?
+Why would anyone want haproxy on Cloud Foundry when it has a perfectly good load balancer and its own routing mesh?
 
 If you're here, you were probably searching for a haproxy buildpack anyway, so you know why you want/need it.
 
