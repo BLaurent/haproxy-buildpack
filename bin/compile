@@ -11,6 +11,8 @@ VERSION=`cat $VERSION_DIR/VERSION | sed 's/[\r\n]*$//'`
 ARCHIVE=`basename $VERSION`
 ARCHIVE_DIR=`echo $ARCHIVE | sed 's/\.tar\.gz$//'`
 
+env
+
 get_source() {
   if [ ! -d $CACHE_DIR ]; then
     echo "Creating $CACHE_DIR"
