@@ -1,9 +1,8 @@
-#!/bin/bash
-# bin/compile <build-dir> <cache-dir>
+#!/bin/sh
 
-set -e            # fail fast
-set -o pipefail   # do not ignore exit codes when piping output
-set -x          # enable debugging
+#set -e            # fail fast
+#set -o pipefail   # do not ignore exit codes when piping output
+#set -x          # enable debugging
 
 BUILD_DIR=$1
 CACHE_DIR=$2
