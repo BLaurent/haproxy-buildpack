@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-echo -e "---\ndefault_process_types:\n  web: pwd "
+cat << EOF
+default_process_types:
+  web: /home/vcap/app/start_haproxy.sh
+EOF

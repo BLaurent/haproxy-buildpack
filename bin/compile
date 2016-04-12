@@ -10,21 +10,21 @@ ARCHIVE_DIR=`echo $ARCHIVE | sed 's/\.tar\.gz$//'`
 get_source() {
   if [ ! -d $CACHE_DIR ]; then
     echo "Creating $CACHE_DIR"
-    mkdir $CACHE_DIR
+    mkdir $CACHE_DIR || exit 1
   fi
 
   if [ -e $CACHE_DIR/$ARCHIVE ]; then
     echo "Don't need to download, already exists"
   else
     echo "Downloading $VERSION..."
-    curl -sSL $VERSION -o $CACHE_DIR/$ARCHIVE
+    curl -sSL $VERSION -o $CACHE_DIR/$ARCHIVE || exit 2
   fi
 }
 
 unpack_source() {
   if [ ! -d $CACHE_DIR/$ARCHIVE_DIR ]; then
     echo "Unpacking..."
-    `tar xzf $CACHE_DIR/$ARCHIVE -C $CACHE_DIR`
+    `tar xzf $CACHE_DIR/$ARCHIVE -C $CACHE_DIR` || exit 3
   fi
 }
 
@@ -32,16 +32,15 @@ compile_source() {
   unpack_source
   if [ ! -f $CACHE_DIR/$ARCHIVE_DIR/haproxy ]; then
     echo "Compiling $ARCHIVE_DIR..."
-    cd $CACHE_DIR/$ARCHIVE_DIR
-    make --silent -j TARGET=linux2628
+    cd $CACHE_DIR/$ARCHIVE_DIR || exit 4
+    make --silent -j TARGET=linux2628 USE_STATIC_PCRE=1 || exit 5
   fi
 }
 
 vendor_bin() {
-  cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy
-  cp $VERSION_DIR/conf/haproxy.cfg $BUILD_DIR/haproxy.cfg
-  cd $BUILD_DIR
-  cp $VERSION_DIR/bin/boot.sh .
+  cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy || exit 6
+  cp $VERSION_DIR/conf/haproxy.cfg $BUILD_DIR/haproxy.cfg || exit 7
+  cp $VERSION_DIR/conf/start_haproxy.sh $BUILD_DIR/start_haproxy.sh || exit 8
 }
 
 get_source
