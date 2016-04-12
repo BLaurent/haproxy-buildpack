@@ -45,9 +45,9 @@ vendor_bin() {
   cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy
 }
 
-get_source
-compile_source
-vendor_bin
+#get_source
+#compile_source
+#vendor_bin
 
 echo "-----> Done."
 
