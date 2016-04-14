@@ -39,9 +39,9 @@ compile_source() {
 
 vendor_bin() {
   cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy || exit 6
-#  cp $VERSION_DIR/conf/start_haproxy.sh $BUILD_DIR/start_haproxy.sh || exit 7
-  cp $(dirname $0)/../conf/start_haproxy.sh $BUILD_DIR/start_haproxy.sh || exit 7
-
+  echo $BUILD_DIR
+  cp $VERSION_DIR/conf/start_haproxy.sh $BUILD_DIR/start_haproxy.sh || exit 7
+#  cp $(dirname $0)/../conf/start_haproxy.sh $BUILD_DIR/start_haproxy.sh || exit 7
 }
 
 get_source
