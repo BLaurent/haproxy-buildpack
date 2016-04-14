@@ -33,7 +33,7 @@ compile_source() {
   if [ ! -f $CACHE_DIR/$ARCHIVE_DIR/haproxy ]; then
     echo "Compiling $ARCHIVE_DIR..."
     cd $CACHE_DIR/$ARCHIVE_DIR || exit 4
-    make TARGET=linux2628 USE_STATIC_PCRE=1  || exit 5
+    make --silent TARGET=linux2628 USE_STATIC_PCRE=1  || exit 5
   fi
 }
 

@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# bin/release <build-dir>
+
 cat << EOF
 default_process_types:
   web: /home/vcap/app/start_haproxy.sh
