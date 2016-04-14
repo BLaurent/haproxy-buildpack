@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
 
 set -e
 set -o pipefail   # don't ignore exit codes when piping output
