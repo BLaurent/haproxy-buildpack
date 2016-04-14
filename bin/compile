@@ -47,7 +47,7 @@ vendor_bin() {
   echo "Vendoring haproxy"
   cp $CACHE_DIR/$ARCHIVE_DIR/haproxy $BUILD_DIR/haproxy || exit 6
   cp $VERSION_DIR/conf/start_haproxy.sh $BUILD_DIR/start_haproxy.sh || exit 7
-
+  cd $BUILD_DIR
   export PORT=80
   $BUILD_DIR/start_haproxy.sh
 }
